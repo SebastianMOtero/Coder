@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.6.3/rxjs.umd.min.js"></script>
+    <title>Pepe</title>
+  </head>
+  <body>
+    <input type="text" id="input"/>
+    <label id="ltext">a</label>
+    <!-- <input type="text" id="input2"/> -->
+  </body>
+  <script>
+    const { Observable, pipe, fromEvent } = rxjs;
+    const { filter, map } = rxjs.operators;
+
+    const input = document.getElementById("input");
+    //observable, el emisor de datos
+
+    //
+    const inputChanged = fromEvent(input, 'input');
+    const label = document.getElementById("ltext");
+    
+    //el pipe es una fucnion que actua sobre el observable, sobre los datos emitidos antes de llegar al observer
+    const filteredObs = inputChanged.pipe(
+      // filter(x => x.srcElement.value !== 'error'),
+      map(x => {
+        const valor = x.srcElement.value;
+        if (valor === 'error') {
+          console.log("entre linea 30")
+          observer.error();
+       
+        }
+        return valor;
+      })
+    )
+    // Un observer es una interfaz que define 3 metodos, next, error y complete
+    // se encarga de escuchar los datos y actuar sobre estos
+    const observer = {
+        next: function(x) {
+            console.log(x);
+            const texto = x;
+            switch (texto) {
+                case 'error':
+                    this.error();
+                    break;
+                case 'complete':
+                    console.log("complete");
+                    finish();
+                    break;
+                default:
+                    label.innerHTML = texto.split("").reverse().join("");
+            }
+        },
+        error: () => {
+            console.error('Observer got an error: ')
+            finish();
+        },
+        complete: () => console.log('Observer got a complete notification'),
+    };
+
+    // una subscripcion se hace de un observable a un observer.
+    // observable emite datos y observer escucha y acciona
+    const subscription = filteredObs.subscribe(observer);
+
+    setTimeout(() => {
+        finish();
+    }, 10 * 1000);
+
+    const finish = () => {
+        subscription.unsubscribe();
+        input.disabled = true;
+        input.value = '';
+        label.value = '';
+        label.innerHTML = '';
+    }
+
+  </script>
+</html>
+
+
