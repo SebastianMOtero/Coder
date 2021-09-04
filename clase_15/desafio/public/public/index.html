@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+    <title>Desafio</title>
+    <style>
+        body{
+            background-color: white;
+            color: black;
+        }
+        h2 {
+            color: blue;
+            /* padding-bottom: 5 rem;  */
+        }
+        img {
+            max-width: 3rem
+        }
+        .card {
+            text-align: center;
+            background-color: rgb(224, 209, 159);
+            color:olive
+        }
+        #centroDeMensajes {
+            padding: 3rem;
+            margin: 2rem;
+            background-color: rgb(223, 219, 219);
+            padding-bottom: 7 rem;
+        }
+        #IngresoProductos {
+          padding: 3rem;
+          margin: 2rem;
+          background-color: rgb(223, 219, 219);
+        }
+        .form-group {
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+        }
+        #ListaDeProductos {
+            padding-top: 1rem;
+        }
+        #h2ListaProductos {
+            color:brown
+        }
+        #messages {
+            padding-bottom: 1rem;
+        }
+        #mensajesForm {
+            padding-top: 1.5rem
+        }
+    </style>
+</head>
+<body>
+    <div id="IngresoProductos">
+        <h2>Ingrese Producto</h2>
+        <form action="/api/productos/guardar"  method="POST">
+        <div class="form-group">
+          <label for="inputNombre"><b><i>Nombre</i></b></label>
+          <input type="text" name="title" class="form-control" id="inputNombre">
+        </div>
+        <div class="form-group">
+          <label for="inputPrecio"><b><i>Precio</i></b></label>
+          <input type="text" name="price" class="form-control" id="inputPrecio">
+        </div>
+        <div class="form-group">
+            <label for="inputFoto"><b><i>Foto URL</i></b></label>
+          <input type="text" name="thumbnail" class="form-control" id="inputFoto">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Enviar</button>
+        </div>
+      </form>
+
+      <div id="ListaDeProductos">
+          <h2 id="h2ListaProductos">Lista de Productos</h2>
+          <span></span>
+      </div>
+    </div>
+    
+      <div id="centroDeMensajes">
+          <div>
+              <h2>Centro de Mensajes</h2>
+          </div>
+          <form id="mensajesForm" onsubmit="return addMessage(this)">
+            <div >
+                <input type="email" id="email" placeholder="Email address">
+                <hr>
+                <div id="messages"></div>
+                <input type="text" id="message" placeholder="Write here...">
+                <input type="submit" value="Send" class="btn-primary"> 
+            </div>
+        </form>
+    </div>
+</body>
+</html>

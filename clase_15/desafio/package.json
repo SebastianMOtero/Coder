@@ -1,0 +1,37 @@
+{
+  "name": "desafio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "desafio.js",
+  "scripts": {
+    "ServerES6toJS5": "babel ./server.es6.js -o ./server.js -w",
+    "ServerTStoJS5": "tsc ./server.ts -w",
+    "dev": "nodemon server.js",
+    "build": ".\\node_modules\\.bin\\tsc",
+    "watch": ".\\node_modules\\.bin\\tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "typescript": "^4.3.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "ts-node": "^10.1.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/express-handlebars": "^5.3.1",
+    "@types/node": "^16.7.2",
+    "@types/socket.io": "^3.0.2"
+  }
+}

@@ -1,0 +1,12 @@
+[
+	{
+		"email": "emilialoidl@hotmail.com",
+		"message": "Muy bueno",
+		"time": "Mon Aug 23 2021 20:51:28 GMT-0300 (hora estándar de Argentina)"
+	},
+	{
+		"email": "sebastian.otero@alumnos.uai.edu.ar",
+		"message": "Horrible!",
+		"time": "Mon Aug 23 2021 20:54:01 GMT-0300 (hora estándar de Argentina)"
+	}
+]
