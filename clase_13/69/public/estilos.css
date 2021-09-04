@@ -1,0 +1,14 @@
+.subbg-color {
+    background-color: grey;
+    color: white;
+    margin: 16px;
+    height: 2000px;
+}
+
+.canvas-color {
+    background-color: white;
+}
+
+.button-pad {
+    margin: 10pt;
+}

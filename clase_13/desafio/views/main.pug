@@ -1,0 +1,63 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    
+        <!-- Bootstrap CSS -->
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous")
+
+        style(type='text/css').
+            body{
+                background-color: rgb(223, 219, 219);
+                color: black;
+            }
+            div, h2 {
+                padding-top: 40px;
+                padding-left: 70px;
+                padding-right: 70px;
+            }
+            h2 {
+                color: blue
+            }
+            img {
+                max-width: 3rem
+            }
+            .card {
+                text-align: center;
+                background-color: rgb(224, 209, 159);
+                color:olive
+            }
+
+    body
+    <h2>Vista de Productos</h2>
+    div
+        if products
+            <table class="table table-dark table-striped table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                each product in products
+                    <tr>
+                    <td>#{product.title}</td>
+                    <td>#{product.price}</td>
+                    <td><img src=#{product.thumbnail} class="" alt="..."></td>
+                    </tr>
+            </tbody>
+            </table>
+        else
+            <div class="card">
+                <div class="card-body">
+                    <h3>No se encontraron productos</h3>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

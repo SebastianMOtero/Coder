@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <style>
+        body{
+            background-color: rgb(223, 219, 219);
+            color: black;
+        }
+        div, h2, h1 {
+          padding-top: 10px;
+          padding-left: 70px;
+          padding-right: 70px;
+          padding-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 style="color: blue;">Ingrese datos</h1>
+    <form action="/datos" method="post">
+        <div class="form-group">
+          <label for="inputNombre"><b><i>Nombre</i></b></label>
+          <input type="text" class="form-control" name="nombre" />
+        </div>
+        <div class="form-group">
+          <label for="inputApellido"><b><i>Apellido</i></b></label>
+          <input type="text" class="form-control" name="apellido"/>
+        </div>
+        <div class="form-group">
+            <label for="inputEdad"><b><i>Edad</i></b></label>
+          <input type="text" class="form-control" name="edad"/>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Enviar</button>
+        </div>
+      </form>
+
+    <h1 style="color: red;">Historial</h1>
+    <div>
+        <%if (personas.length > 0 ) { %>
+    <table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% personas.forEach(function(persona){ %>
+        <tr>
+        <td><%= persona.nombre %></td>
+        <td><%= persona.apellido %></td>
+        <td><%= persona.edad %></td>
+        </tr>
+        <% }) %>
+    </tbody>
+    </table>
+        <% } else { %>
+        <div style="background-color: rgb(219, 148, 148)" class="card">
+            <div class="card-body">
+                <h3 style="color: rgb(117, 44, 44)">No se encontraron datos</h3>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</body>
+</html>

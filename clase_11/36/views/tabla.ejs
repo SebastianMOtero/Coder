@@ -1,0 +1,29 @@
+<h1 style="color: red;">Historial</h1>
+    <div>
+        <%if (personas.length > 0 ) { %>
+    <table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% personas.forEach(function(persona){ %>
+        <tr>
+        <td><%= persona.nombre %></td>
+        <td><%= persona.apellido %></td>
+        <td><%= persona.edad %></td>
+        </tr>
+        <% }) %>
+    </tbody>
+    </table>
+        <% } else { %>
+        <div style="background-color: rgb(219, 148, 148)" class="card">
+            <div class="card-body">
+                <h3 style="color: rgb(117, 44, 44)">No se encontraron datos</h3>
+            </div>
+        </div>
+        <% } %>
+    </div>

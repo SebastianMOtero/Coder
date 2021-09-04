@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    </script>
+</head>
+<body>
+    Servidor con WEBSOCKET - 3
+    <label>Ingreso: <input id="inputText" type="text"></label><button onclick="myFunction()"> Enviar Mensaje </button>
+    <br>
+    <div id="msg">
+
+    </div>
+    <script>
+        const socket = io();
+        const inputText = document.getElementById("inputText");
+
+        function myFunction() {
+            console.log(inputText.value);
+            socket.emit('desafio 2', {
+                socketid: socket.id,
+                mensaje: inputText.value
+            });
+            inputText.value = '';
+        }  
+
+        socket.on('mensajes', data => {
+            data.forEach(mensaje => {
+                const newlabel = document.createElement("Label");
+                newlabel.innerHTML = JSON.stringify(mensaje);
+                msg.appendChild(newlabel);
+                const newbr = document.createElement("br");
+                msg.appendChild(newbr);
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "22.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
