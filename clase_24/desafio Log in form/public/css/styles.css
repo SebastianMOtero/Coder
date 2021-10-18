@@ -1,0 +1,17 @@
+h1 {
+    color: blue;
+}
+
+h2 {
+    color: brown;
+}
+
+label {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.jumbotron {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
